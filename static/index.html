@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - Memory & Personality Engine</title>
+
+    <link rel="stylesheet" href="static/styles.css">
+        
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Chatbot with Memory & Personality</h1>
+            <p>Experience AI that remembers and adapts its personality</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Chat Interface -->
+            <div class="section">
+                <h2>💬 Interactive Chat</h2>
+                <div class="user-name-input" style="margin-bottom: 15px;">
+                    <label for="userNameInput" style="display: block; margin-bottom: 5px; color: #666; font-weight: 500;">Your Name:</label>
+                    <input type="text" id="userNameInput" placeholder="Enter your name (e.g., John)" style="width: 200px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                    <button onclick="saveUserName()" style="margin-left: 10px; padding: 8px 15px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">Save</button>
+                </div>
+                <div class="personality-selector">
+                    <button class="personality-btn active" data-personality="default">Default</button>
+                    <button class="personality-btn" data-personality="calm_mentor">Calm Mentor</button>
+                    <button class="personality-btn" data-personality="witty_friend">Witty Friend</button>
+                    <button class="personality-btn" data-personality="therapist">Therapist</button>
+                </div>
+                <div class="chat-container" id="chatContainer"></div>
+                <div class="input-group">
+                    <input type="text" id="messageInput" placeholder="Type your message..." onkeypress="if(event.key==='Enter') sendMessage()">
+                    <button onclick="sendMessage()" id="sendBtn">Send</button>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="comparePersonalities()">Compare All Personalities</button>
+                    <button class="btn btn-secondary" onclick="clearChat()">Clear Chat</button>
+                </div>
+            </div>
+
+            <!-- Memory Display -->
+            <div class="section">
+                <h2>🧠 Extracted Memory</h2>
+                <div class="memory-display" id="memoryDisplay">
+                    <p style="color: #999; text-align: center; padding: 20px;">
+                        Memory will appear here as you chat. The system extracts:
+                        <br><br>
+                        • <strong>Preferences</strong> - Your likes, interests, hobbies
+                        <br>
+                        • <strong>Emotional Patterns</strong> - How you feel and when
+                        <br>
+                        • <strong>Facts</strong> - Important information about you
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div class="section" id="comparisonSection" style="display: none; margin: 30px;">
+            <h2>🔄 Personality Comparison</h2>
+            <p style="margin-bottom: 20px; color: #666;">
+                See how the same conversation would look with different personalities:
+            </p>
+            <div class="comparison-container" id="comparisonContainer"></div>
+        </div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
+
